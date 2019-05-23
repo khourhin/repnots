@@ -1,0 +1,9 @@
+* analysis_framework					:kornobis:
+** TODO <STEPS TO ADD>  :0.1:
+   <SCHEDULE DATE TO ADD (C-c C-s)>
+*** <FIRST SET OF GOALS TO ADD> [/]
+    - [ ]
+
+** Metadata
+** Data
+** Bibliography
