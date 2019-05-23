@@ -1,8 +1,10 @@
-* analysis_framework					:kornobis:
-** TODO <STEPS TO ADD>  :0.1:
-   <SCHEDULE DATE TO ADD (C-c C-s)>
-*** <FIRST SET OF GOALS TO ADD> [/]
-    - [ ]
+* analysis_framework                                               :kornobis:
+** Dev
+*** Premises [0/1]
+   SCHEDULED: <2019-06-30 Sun>
+
+    - [ ] Setup a snakemake file launching a jupyter notebooks with papermill
+      using a configuration file
 
 ** Metadata
 ** Data
