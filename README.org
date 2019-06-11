@@ -1,10 +1,15 @@
 * analysis_framework                                               :kornobis:
 ** Dev
-*** Premises [0/1]
+*** Premises [0/2]
    SCHEDULED: <2019-06-30 Sun>
 
     - [ ] Setup a snakemake file launching a jupyter notebooks with papermill
       using a configuration file
+
+    - [ ] Define an organisation for the jupyter notebooks:
+      - 1 for summary
+      - 1 for data downloads
+      - 1 for general report/figures/tables
 
 ** Metadata
 ** Data
