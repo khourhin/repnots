@@ -1,0 +1,3 @@
+OUTDIR: {{OUTDIR}}
+REPORT_DIR: report
+DOWNLOAD_DIR: download
