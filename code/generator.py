@@ -1,14 +1,11 @@
+#! /usr/bin/env python
+
 import os
 import glob
+import argparse
 import subprocess
 from jinja2 import Template
 from nbconvert import TemplateExporter, HTMLExporter
-
-OUTDIR = "outdir"
-NOTEBOOK_TEMPLATES = os.path.abspath("notebook_templates")
-NOTEBOOKS_OUTDIR = "executed_notebooks"
-SNAKEFILE_TEMPLATE = "templates/basic_snakefile"
-SNAKEFILE_RENDERED = os.path.join(OUTDIR, "Snakefile")
 
 
 def generate_snakefile(
@@ -35,17 +32,17 @@ def generate_snakefile(
         )
 
 
-def generate_config(output_dir, config_template):
+def generate_config(outdir, config_template):
     """ Create the YAML config used by papermill
 
-    :param output_dir: Path to the output directory of the workflow.
+    :param outdir: Path to the output directory of the workflow.
     """
 
     with open(config_template) as f:
         template = Template(f.read())
 
-    with open(os.path.join(output_dir, "config.yaml"), "w") as out:
-        out.write(template.render(OUTDIR=output_dir))
+    with open(os.path.join(outdir, "config.yaml"), "w") as out:
+        out.write(template.render(OUTDIR=outdir))
 
 
 def export_notebook_to_html(notebook):
@@ -62,18 +59,54 @@ def export_notebook_to_html(notebook):
         f.write(output)
 
 
+def parse_arguments():
+    parser = argparse.ArgumentParser(description="Jupyter notebooks based workflow")
+
+    parser.add_argument(
+        "-o", "--outdir", required=True, help="Path to output directory"
+    )
+    parser.add_argument(
+        "-t",
+        "--notebook_templates_dir",
+        help="Path to directory with jupyter notebooks to use as templates",
+        default=os.path.join(
+            os.path.dirname(os.path.abspath(__file__)), "notebook_templates"
+        ),
+    )
+    parser.add_argument(
+        "-s",
+        "--snakefile_template",
+        help="Path to the snakefile jinja template file",
+        default=os.path.join(
+            os.path.dirname(os.path.abspath(__file__)), "templates", "basic_snakefile"
+        ),
+    )
+
+    return parser.parse_args()
+
+
 def main():
 
-    os.makedirs(OUTDIR)
-    generate_config(OUTDIR, "templates/config.yaml")
+    args = parse_arguments()
+
+    notebooks_outdir = "executed_notebooks"
+
+    os.makedirs(args.outdir)
+
+    generate_config(args.outdir, "templates/config.yaml")
+
     generate_snakefile(
-        NOTEBOOK_TEMPLATES, SNAKEFILE_TEMPLATE, SNAKEFILE_RENDERED, NOTEBOOKS_OUTDIR
+        args.notebook_templates_dir,
+        args.snakefile_template,
+        os.path.join(args.outdir, "Snakefile"),
+        "executed_notebooks",
     )
-    os.chdir(OUTDIR)
+    os.chdir(args.outdir)
     subprocess.run("snakemake")
 
-    for notebook in glob.glob(os.path.join(NOTEBOOKS_OUTDIR, "*.ipynb")):
+    for notebook in glob.glob(os.path.join(notebooks_outdir, "*.ipynb")):
         export_notebook_to_html(notebook)
 
 
-main()
+if __name__ == "__main__":
+    main()
