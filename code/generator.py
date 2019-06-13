@@ -1,6 +1,14 @@
 import os
-from jinja2 import Template
+import glob
 import subprocess
+from jinja2 import Template
+from nbconvert import TemplateExporter, HTMLExporter
+
+OUTDIR = "outdir"
+NOTEBOOK_TEMPLATES = os.path.abspath("notebook_templates")
+NOTEBOOKS_OUTDIR = "executed_notebooks"
+SNAKEFILE_TEMPLATE = "templates/basic_snakefile"
+SNAKEFILE_RENDERED = os.path.join(OUTDIR, "Snakefile")
 
 
 def generate_snakefile(
@@ -40,19 +48,32 @@ def generate_config(output_dir, config_template):
         out.write(template.render(OUTDIR=output_dir))
 
 
+def export_notebook_to_html(notebook):
+    # Config for simple output
+    TemplateExporter.exclude_input_prompt = True
+    TemplateExporter.exclude_output_prompt = True
+    TemplateExporter.exclude_input = True
+
+    exporter = HTMLExporter(template_file="full.tpl")
+
+    # Make html report
+    output, resources = exporter.from_filename(notebook)
+    with open(f"{os.path.splitext(notebook)[0]}.html", "w") as f:
+        f.write(output)
+
+
 def main():
 
-    outdir = "outdir"
-    os.makedirs(outdir)
-    generate_config(outdir, "templates/config.yaml")
+    os.makedirs(OUTDIR)
+    generate_config(OUTDIR, "templates/config.yaml")
     generate_snakefile(
-        os.path.abspath("notebook_templates"),
-        "templates/basic_snakefile",
-        os.path.join(outdir, "Snakefile"),
-        "executed_notebooks",
+        NOTEBOOK_TEMPLATES, SNAKEFILE_TEMPLATE, SNAKEFILE_RENDERED, NOTEBOOKS_OUTDIR
     )
-    os.chdir(outdir)
+    os.chdir(OUTDIR)
     subprocess.run("snakemake")
+
+    for notebook in glob.glob(os.path.join(NOTEBOOKS_OUTDIR, "*.ipynb")):
+        export_notebook_to_html(notebook)
 
 
 main()

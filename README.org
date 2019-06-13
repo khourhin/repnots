@@ -1,7 +1,7 @@
 * analysis_framework                                               :kornobis:
 ** Dev
-*** Premises [2/2] :0.1:
-   SCHEDULED: <2019-06-30 Sun>
+*** DONE Premises [2/2] :0.1:
+   CLOSED: [2019-06-13 Thu 09:43] SCHEDULED: <2019-06-30 Sun>
 
     - [X] Setup a snakemake file launching a jupyter notebooks with papermill
       using a configuration file
@@ -10,6 +10,14 @@
       - 1 for summary
       - 1 for data downloads
       - 1 for general report/figures/tables
+
+*** DONE Add html export :0.2:
+    CLOSED: [2019-06-13 Thu 11:23] SCHEDULED: <2019-06-13 Thu>
+
+*** TODO Add singularity support [/] :0.3:
+    SCHEDULED: <2019-06-30 Sun>
+
+    - [ ] Add container functionality (singularity) in a notebook
 
 ** Metadata
 ** Data
