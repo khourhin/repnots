@@ -1,4 +1,26 @@
 * analysis_framework                                               :kornobis:
+** Design
+
+The first idea was to have only a series of notebooks which are providing an
+exhaustive description of an analysis.
+
+PB: Reproducibility / Claritity interface. 
+- How to integrate containers in jupyter ?
+  > Should we have a specific homemade container per notebook
+  >> This hinder part of the interest of containers being "atomical"
+  > Only use conda environments (ie one conda environments per notebooks)
+
+  >>> Maybe can be a structure could be, one singularity container with all the
+  conda environments of the analysis.
+
+- How to deal with computing ressources demanding parts of the analysis: in
+  notebook ? as snakemake rules ?
+
+- Structure:
+  Maybe each analysis notebooks could be separeted in a:
+  - prior: All requirements needed for the analysis
+  - main: The actual analysis
+
 ** Dev
 *** DONE Premises [2/2] :0.1:
    CLOSED: [2019-06-13 Thu 09:43] SCHEDULED: <2019-06-30 Sun>
@@ -14,10 +36,22 @@
 *** DONE Add html export :0.2:
     CLOSED: [2019-06-13 Thu 11:23] SCHEDULED: <2019-06-13 Thu>
 
-*** TODO Add singularity support [/] :0.3:
+*** TODO Add singularity support [1/2] :0.3:
     SCHEDULED: <2019-06-30 Sun>
 
-    - [ ] Add container functionality (singularity) in a notebook
+    - [X] Add container functionality (singularity) in a notebook
+
+    - [ ] Add container functionality in a snakemake rule
+
+      > Still fighting with install of singularity new version (install process
+      looks ugly and dependending on .bashrc !)
+
+*** NEXT
+
+- Actually, the rules added using jinja templates could be replaced by one
+  "papermill rule" which would run papermill on each notebook. Check how to
+  refactor that.
+
 
 ** Metadata
 ** Data
