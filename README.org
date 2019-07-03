@@ -6,8 +6,11 @@ exhaustive description of an analysis.
 
 PB: Reproducibility / Claritity interface. 
 - How to integrate containers in jupyter ?
+
   > Should we have a specific homemade container per notebook
+
   >> This hinder part of the interest of containers being "atomical"
+
   > Only use conda environments (ie one conda environments per notebooks)
 
   >>> Maybe can be a structure could be, one singularity container with all the
