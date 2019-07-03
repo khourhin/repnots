@@ -1,10 +1,10 @@
 #! /usr/bin/env python
 
-from pathlib import Path
 import os
 import glob
 import argparse
 import subprocess
+import shutil
 import yaml
 from jinja2 import Template
 from nbconvert import TemplateExporter, HTMLExporter
@@ -94,6 +94,12 @@ def parse_arguments():
             os.path.dirname(os.path.abspath(__file__)), "templates", "config.yaml"
         ),
     )
+    parser.add_argument(
+        "-e",
+        "--conda_env_dir",
+        help="Path to the directory with all the conda environment yaml files",
+        type=directory_path_type,
+    )
 
     return parser.parse_args()
 
@@ -111,7 +117,15 @@ def main():
 
     args = parse_arguments()
 
+    # Create ouput directory
     os.makedirs(args.outdir)
+
+    if args.conda_env_dir:
+        # Copy conda environment files
+        env_dir = os.path.join(args.outdir, "envs")
+        os.makedirs(env_dir)
+        for env_yaml_file in glob.glob(os.path.join(args.conda_env_dir, "*.yml")):
+            shutil.copy(env_yaml_file, env_dir)
 
     config_file = make_yaml_config(args.outdir, args.yaml_config_template)
 
@@ -126,7 +140,7 @@ def main():
     )
 
     os.chdir(args.outdir)
-    subprocess.run("snakemake")
+    subprocess.run(["snakemake", "--use-conda", "--use-singularity"])
 
     for notebook in glob.glob(
         os.path.join(config["EXECUTED_NOTEBOOKS_DIR"], "*.ipynb")
