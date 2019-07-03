@@ -1,4 +1,4 @@
-* analysis_framework                                               :kornobis:
+* Analysis Framework                                               :kornobis:
 ** Design
 
 The first idea was to have only a series of notebooks which are providing an
@@ -38,12 +38,12 @@ PB: Reproducibility / Claritity interface.
 *** DONE Add html export :0.2:
     CLOSED: [2019-06-13 Thu 11:23] SCHEDULED: <2019-06-13 Thu>
 
-*** TODO Add singularity support [1/2] :0.3:
-    SCHEDULED: <2019-07-31 Wed>
+*** DONE Add singularity support [2/2] :0.3:
+    CLOSED: [2019-07-03 Wed 19:05] SCHEDULED: <2019-07-31 Wed>
 
     - [X] Add container functionality (singularity) in a notebook
       
-    - [ ] Add container functionality in a snakemake rule
+    - [X] Add container functionality in a snakemake rule
 
       > Still fighting with install of singularity new version (install process
       looks ugly and dependending on .bashrc !)
