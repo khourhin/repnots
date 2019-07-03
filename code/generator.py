@@ -63,6 +63,15 @@ def export_notebook_to_html(notebook):
         f.write(output)
 
 
+def copy_conda_envs(conda_env_dir, outdir):
+    """ Copy the conda environment yaml file to the output directory
+    """
+    env_dir = os.path.join(outdir, "envs")
+    os.makedirs(env_dir)
+    for env_yaml_file in glob.glob(os.path.join(conda_env_dir, "*.yml")):
+        shutil.copy(env_yaml_file, env_dir)
+
+
 def parse_arguments():
     parser = argparse.ArgumentParser(description="Jupyter notebooks based workflow")
 
@@ -121,11 +130,7 @@ def main():
     os.makedirs(args.outdir)
 
     if args.conda_env_dir:
-        # Copy conda environment files
-        env_dir = os.path.join(args.outdir, "envs")
-        os.makedirs(env_dir)
-        for env_yaml_file in glob.glob(os.path.join(args.conda_env_dir, "*.yml")):
-            shutil.copy(env_yaml_file, env_dir)
+        copy_conda_envs(args.conda_env_dir, args.outdir)
 
     config_file = make_yaml_config(args.outdir, args.yaml_config_template)
 
