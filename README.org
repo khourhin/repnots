@@ -20,6 +20,8 @@ PB: Reproducibility / Claritity interface.
   Maybe each analysis notebooks could be separeted in a:
   - prior: All requirements needed for the analysis
   - main: The actual analysis
+  - Most ressources demanding computations > In snakemake only ? > easyer when
+    migrating to cluster.
 
 ** Dev
 *** DONE Premises [2/2] :0.1:
@@ -37,14 +39,16 @@ PB: Reproducibility / Claritity interface.
     CLOSED: [2019-06-13 Thu 11:23] SCHEDULED: <2019-06-13 Thu>
 
 *** TODO Add singularity support [1/2] :0.3:
-    SCHEDULED: <2019-06-30 Sun>
+    SCHEDULED: <2019-07-31 Wed>
 
     - [X] Add container functionality (singularity) in a notebook
-
+      
     - [ ] Add container functionality in a snakemake rule
 
       > Still fighting with install of singularity new version (install process
       looks ugly and dependending on .bashrc !)
+
+      > Fixed with AUR, check [[file:~/org/my_manual.org::*Install]]
 
 *** NEXT
 
@@ -52,6 +56,7 @@ PB: Reproducibility / Claritity interface.
   "papermill rule" which would run papermill on each notebook. Check how to
   refactor that.
 
+- Create an index/webpage linkin all html ( a jupyter notebook ? a django server ?)
 
 ** Metadata
 ** Data
