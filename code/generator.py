@@ -1,5 +1,6 @@
 #! /usr/bin/env python
 
+from pathlib import Path
 import os
 import glob
 import argparse
@@ -75,6 +76,7 @@ def parse_arguments():
         default=os.path.join(
             os.path.dirname(os.path.abspath(__file__)), "notebook_templates"
         ),
+        type=directory_path_type,
     )
     parser.add_argument(
         "-s",
@@ -94,6 +96,15 @@ def parse_arguments():
     )
 
     return parser.parse_args()
+
+
+def directory_path_type(string):
+
+    # In case the argument is a proper directory, return the absolute path
+    if os.path.isdir(string):
+        return os.path.abspath(string)
+    else:
+        raise NotADirectoryError(string)
 
 
 def main():
