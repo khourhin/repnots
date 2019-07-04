@@ -58,13 +58,15 @@ PB: Reproducibility / Claritity interface.
 
     Using CookieCutter and Sphinx
 
-*** TODO Add preliminary tests
+*** TODO Add preliminary tests  :0.4.1:
     SCHEDULED: <2019-07-04 Thu>
 
 - Adding notebook test: can get inspiration from
   https://github.com/diana-hep/pyhf/blob/master/tests/test_notebooks.py
   or
   https://discourse.jupyter.org/t/testing-notebooks/701
+
+- [X] simple test using init_repnots script
 
 *** NEXT
 

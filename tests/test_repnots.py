@@ -4,22 +4,16 @@
 """Tests for `repnots` package."""
 
 import pytest
-
+import papermill as pm
+import subprocess
 
 from repnots import repnots
 
 
-@pytest.fixture
-def response():
-    """Sample pytest fixture.
-
-    See more at: http://doc.pytest.org/en/latest/fixture.html
-    """
-    # import requests
-    # return requests.get('https://github.com/audreyr/cookiecutter-pypackage')
+# @pytest.fixture(scope="module")
+# def setup(tmpdir):2
 
 
-def test_content(response):
-    """Sample pytest test function with the pytest fixture as an argument."""
-    # from bs4 import BeautifulSoup
-    # assert 'GitHub' in BeautifulSoup(response.content).title.string
+def test_init_repnots(tmpdir):
+
+    subprocess.run(["init_repnots", "-o", tmpdir])

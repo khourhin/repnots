@@ -64,7 +64,7 @@ def main():
     args = parse_arguments()
 
     # Create ouput directory
-    os.makedirs(args.outdir)
+    os.makedirs(args.outdir, exist_ok=True)
 
     if args.conda_env_dir:
         rn.copy_conda_envs(args.conda_env_dir, args.outdir)
