@@ -1,4 +1,4 @@
-* analysis_framework version:
+* repnots version:
 * Python version:
 * Operating System:
 

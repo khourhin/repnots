@@ -2,6 +2,6 @@
 Usage
 =====
 
-To use analysis_framework in a project::
+To use repnots in a project::
 
-    import analysis_framework
+    import repnots

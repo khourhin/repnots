@@ -8,13 +8,13 @@ Installation
 Stable release
 --------------
 
-To install analysis_framework, run this command in your terminal:
+To install repnots, run this command in your terminal:
 
 .. code-block:: console
 
-    $ pip install analysis_framework
+    $ pip install repnots
 
-This is the preferred method to install analysis_framework, as it will always install the most recent stable release.
+This is the preferred method to install repnots, as it will always install the most recent stable release.
 
 If you don't have `pip`_ installed, this `Python installation guide`_ can guide
 you through the process.
@@ -26,19 +26,19 @@ you through the process.
 From sources
 ------------
 
-The sources for analysis_framework can be downloaded from the `Github repo`_.
+The sources for repnots can be downloaded from the `Github repo`_.
 
 You can either clone the public repository:
 
 .. code-block:: console
 
-    $ git clone git://github.com/khourhin/analysis_framework
+    $ git clone git://github.com/khourhin/repnots
 
 Or download the `tarball`_:
 
 .. code-block:: console
 
-    $ curl  -OL https://github.com/khourhin/analysis_framework/tarball/master
+    $ curl  -OL https://github.com/khourhin/repnots/tarball/master
 
 Once you have a copy of the source, you can install it with:
 
@@ -47,5 +47,5 @@ Once you have a copy of the source, you can install it with:
     $ python setup.py install
 
 
-.. _Github repo: https://github.com/khourhin/analysis_framework
-.. _tarball: https://github.com/khourhin/analysis_framework/tarball/master
+.. _Github repo: https://github.com/khourhin/repnots
+.. _tarball: https://github.com/khourhin/repnots/tarball/master

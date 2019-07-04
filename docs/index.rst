@@ -1,5 +1,6 @@
-Welcome to analysis_framework's documentation!
-======================================
+===================================
+Welcome to repnots's documentation!
+===================================
 
 .. toctree::
    :maxdepth: 2
