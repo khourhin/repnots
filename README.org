@@ -65,8 +65,8 @@ PB: Reproducibility / Claritity interface.
 
     Using CookieCutter and Sphinx
 
-*** TODO Add preliminary tests  :0.4.1:
-    SCHEDULED: <2019-07-04 Thu>
+*** DONE Add preliminary tests  :0.4.1:
+    CLOSED: [2019-07-05 Fri 00:22] SCHEDULED: <2019-07-04 Thu>
 
 - Adding notebook test: can get inspiration from
   https://github.com/diana-hep/pyhf/blob/master/tests/test_notebooks.py
@@ -75,7 +75,7 @@ PB: Reproducibility / Claritity interface.
 
 - [X] simple test using init_repnots script
 
-- [ ] More advanced notebook tests using papermill
+- [X] More advanced notebook tests using papermill and scrapbook
 
 *** NEXT
 
