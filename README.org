@@ -26,6 +26,13 @@ PB: Reproducibility / Claritity interface.
   - Most ressources demanding computations > In snakemake only ? > easyer when
     migrating to cluster.
 
+- Testing:
+
+  I see 2 ways of testing:
+  - Using classical pytest with against output files created by a particular notebook
+  - Using papermill and scrapbook from nteract (this look more cumbersome, ie
+    have to add code to the notebook cells we want to keep the output)
+
 ** Dev
 *** DONE Premises [2/2] :0.1:
    CLOSED: [2019-06-13 Thu 09:43] SCHEDULED: <2019-06-30 Sun>
@@ -67,6 +74,8 @@ PB: Reproducibility / Claritity interface.
   https://discourse.jupyter.org/t/testing-notebooks/701
 
 - [X] simple test using init_repnots script
+
+- [ ] More advanced notebook tests using papermill
 
 *** NEXT
 
