@@ -1,4 +1,0 @@
-OUTDIR: {{OUTDIR}}
-REPORT_DIR: report
-DOWNLOAD_DIR: download
-EXECUTED_NOTEBOOKS_DIR: executed_notebooks
