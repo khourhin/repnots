@@ -60,12 +60,12 @@ PB: Reproducibility / Claritity interface.
 
       > Fixed with AUR, check [[file:~/org/my_manual.org::*Install]]
 
-*** DONE Use CookieCutter and add first documentation :0.4:
+*** DONE Use CookieCutter and add first documentation :0.3:
     CLOSED: [2019-07-04 Thu 13:05] SCHEDULED: <2019-07-04 Thu>
 
     Using CookieCutter and Sphinx
 
-*** DONE Add preliminary tests  :0.4.1:
+*** DONE Add preliminary tests  :0.3.1:
     CLOSED: [2019-07-05 Fri 00:22] SCHEDULED: <2019-07-04 Thu>
 
 - Adding notebook test: can get inspiration from
