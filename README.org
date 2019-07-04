@@ -53,8 +53,8 @@ PB: Reproducibility / Claritity interface.
 
       > Fixed with AUR, check [[file:~/org/my_manual.org::*Install]]
 
-*** TODO Use CookieCutter and add first documentation :0.4:
-    SCHEDULED: <2019-07-04 Thu>
+*** DONE Use CookieCutter and add first documentation :0.4:
+    CLOSED: [2019-07-04 Thu 13:05] SCHEDULED: <2019-07-04 Thu>
 
     Using CookieCutter and Sphinx
 
