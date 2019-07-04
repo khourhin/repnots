@@ -1,0 +1,106 @@
+    :Author: khourhin
+	     
+.. contents::
+
+1 Analysis Framework :kornobis:
+--------------------
+
+1.1 Design
+~~~~~~~~~~
+
+The first idea was to have only a series of notebooks which are providing an
+exhaustive description of an analysis.
+
+PB: Reproducibility / Claritity interface. 
+
+- How to integrate containers in jupyter ?
+
+  > Should we have a specific homemade container per notebook
+
+  >> This hinder part of the interest of containers being "atomical"
+
+  > Only use conda environments (ie one conda environments per notebooks)
+
+  >>> Maybe can be a structure could be, one singularity container with all the
+  conda environments of the analysis.
+
+- How to deal with computing ressources demanding parts of the analysis: in
+  notebook ? as snakemake rules ?
+
+- Structure:
+  Maybe each analysis notebooks could be separeted in a:
+
+  - prior: All requirements needed for the analysis
+
+  - main: The actual analysis
+
+  - Most ressources demanding computations > In snakemake only ? > easyer when
+    migrating to cluster.
+
+1.2 Dev
+~~~~~~~
+
+1.2.1 DONE Premises [2/2] :0.1:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- ☑ Setup a snakemake file launching a jupyter notebooks with papermill
+  using a configuration file
+
+- ☑ Define an primary organisation for the jupyter notebooks:
+
+  - 1 for summary
+
+  - 1 for data downloads
+
+  - 1 for general report/figures/tables
+
+1.2.2 DONE Add html export :0.2:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1.2.3 DONE Add singularity support [2/2] :0.3:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- ☑ Add container functionality (singularity) in a notebook
+
+- ☑ Add container functionality in a snakemake rule
+
+  > Still fighting with install of singularity new version (install process
+  looks ugly and dependending on .bashrc !)
+
+  > Fixed with AUR, check `~/org/my_manual. <~/org/my_manual.>`_
+
+1.2.4 TODO Add first documentation :0.4:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Using sphinx
+
+1.2.5 TODO Add preliminary tests
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Adding notebook test: can get inspiration from
+  `https://github.com/diana-hep/pyhf/blob/master/tests/test_notebooks.py <https://github.com/diana-hep/pyhf/blob/master/tests/test_notebooks.py>`_
+  or
+  `https://discourse.jupyter.org/t/testing-notebooks/701 <https://discourse.jupyter.org/t/testing-notebooks/701>`_
+
+1.2.6 NEXT
+^^^^^^^^^^
+
+- Actually, the rules added using jinja templates could be replaced by one
+  "papermill rule" which would run papermill on each notebook. Check how to
+  refactor that.
+
+  > But maybe better in case we want to trace the input/outputs of each
+  notebooks through snakemake later on.
+
+- Create an index/webpage linkin all html ( a jupyter notebook ? a django server ?)
+
+- Integrate voila server ?
+
+1.3 Metadata
+~~~~~~~~~~~~
+
+1.4 Data
+~~~~~~~~
+
+1.5 Bibliography
+~~~~~~~~~~~~~~~~
