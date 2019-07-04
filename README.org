@@ -56,7 +56,7 @@ PB: Reproducibility / Claritity interface.
 *** TODO Use CookieCutter and add first documentation :0.4:
     SCHEDULED: <2019-07-04 Thu>
 
-    Using sphinx
+    Using CookieCutter and Sphinx
 
 *** TODO Add preliminary tests
     SCHEDULED: <2019-07-04 Thu>
