@@ -79,8 +79,7 @@ def copy_conda_envs(conda_env_dir, outdir):
 def convert_pys_to_ipynbs(notebook_templates_dir):
     """Convert all light scripts found in notebook_templates_dir into ipynb notebooks using jupytext
 
-    :param notebook_templates_dir: Path to directory with jupyter notebooks in
-    form of py light scripts.
+    :param notebook_templates_dir: Path to directory with jupyter notebooks in form of py light scripts.
     """
 
     if not os.path.isdir(notebook_templates_dir):

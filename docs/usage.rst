@@ -2,6 +2,7 @@
 Usage
 =====
 
-To use repnots in a project::
+Example run repnot framework::
 
-    import repnots
+  init_repnots -o out_folder
+
