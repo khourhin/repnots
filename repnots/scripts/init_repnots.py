@@ -46,6 +46,13 @@ def parse_arguments():
         help="Path to the directory with all the conda environment yaml files",
         type=directory_path_type,
     )
+    parser.add_argument(
+        "-f",
+        "--notebook_format",
+        help="If either the template notebooks are in ipynb or py light script format",
+        choices=["py", "ipynb"],
+        default="py",
+    )
 
     return parser.parse_args()
 
@@ -68,6 +75,9 @@ def main():
 
     if args.conda_env_dir:
         rn.copy_conda_envs(args.conda_env_dir, args.outdir)
+
+    if args.notebook_format == "py":
+        rn.convert_pys_to_ipynbs(args.notebook_templates_dir)
 
     config_file = rn.make_yaml_config(args.outdir, args.yaml_config_template)
 

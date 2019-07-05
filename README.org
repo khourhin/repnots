@@ -32,6 +32,7 @@ PB: Reproducibility / Claritity interface.
   - Using classical pytest with against output files created by a particular notebook
   - Using papermill and scrapbook from nteract (this look more cumbersome, ie
     have to add code to the notebook cells we want to keep the output)
+  - Another option would be to perform test on the jupytext files (not the notebooks) ?
 
 ** Dev
 *** DONE Premises [2/2] :0.1:
@@ -78,6 +79,8 @@ PB: Reproducibility / Claritity interface.
 - [X] More advanced notebook tests using papermill and scrapbook
 
 *** NEXT
+
+- Integrate jupytext
 
 - Actually, the rules added using jinja templates could be replaced by one
   "papermill rule" which would run papermill on each notebook. Check how to

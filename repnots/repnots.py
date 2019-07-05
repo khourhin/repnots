@@ -18,7 +18,10 @@ def make_snakefile(notebook_templates_dir, snake_template, snakefile, notebooks_
     :param snake_template: the name of the file to use as snakefile template.
     """
 
-    notebooks = glob.glob(os.path.join(notebook_templates_dir, "*.ipynb"))
+    notebooks = [
+        os.path.basename(ipynb)
+        for ipynb in glob.glob(os.path.join(notebook_templates_dir, "*.ipynb"))
+    ]
 
     with open(snake_template) as f:
         template = Template(f.read())
@@ -73,7 +76,7 @@ def copy_conda_envs(conda_env_dir, outdir):
         shutil.copy(env_yaml_file, env_dir)
 
 
-def convert_py_to_ipynb(notebook_templates_dir):
+def convert_pys_to_ipynbs(notebook_templates_dir):
     """Convert all light scripts found in notebook_templates_dir into ipynb notebooks using jupytext
 
     :param notebook_templates_dir: Path to directory with jupyter notebooks in
