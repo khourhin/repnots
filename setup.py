@@ -45,7 +45,7 @@ setup(
     test_suite="tests",
     tests_require=test_requirements,
     url="https://github.com/khourhin/repnots",
-    version="version='0.3.2'",
+    version="version='0.3.3'",
     zip_safe=False,
     entry_points={
         "console_scripts": ["init_repnots=repnots.scripts.init_repnots:main"]
