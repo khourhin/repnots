@@ -54,6 +54,8 @@ def make_yaml_config(outdir, config_template):
 
 
 def export_notebook_to_html(notebook):
+    """ Properly export executed ipynb to html.
+    """
     # Config for simple output
     TemplateExporter.exclude_input_prompt = True
     TemplateExporter.exclude_output_prompt = True
