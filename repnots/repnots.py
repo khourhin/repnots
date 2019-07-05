@@ -13,11 +13,11 @@ from nbconvert import TemplateExporter, HTMLExporter
 def make_snakefile(notebook_templates_dir, snake_template, snakefile, notebooks_outdir):
     """ Generate a snakefile to execute a series of jupyter notebooks using papermill
 
-    :param notebook_templates_dir: a directory where to find the jupyter notebook templates 
+    :param notebook_templates_dir: a directory where to find the ipynb jupyter notebook templates 
     :param snake_template: the name of the file to use as snakefile template.
     """
 
-    notebooks = os.listdir(notebook_templates_dir)
+    notebooks = glob.glob(os.path.join(notebook_templates_dir, "*.ipynb"))
 
     with open(snake_template) as f:
         template = Template(f.read())
