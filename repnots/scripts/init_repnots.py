@@ -29,7 +29,9 @@ def parse_arguments():
         "--snakefile_template",
         help="Path to the snakefile jinja template file",
         default=os.path.join(
-            os.path.dirname(os.path.abspath(__file__)), "templates", "basic_snakefile"
+            os.path.dirname(os.path.abspath(__file__)),
+            "templates",
+            "advanced_snakefile",
         ),
     )
     parser.add_argument(

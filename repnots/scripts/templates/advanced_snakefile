@@ -1,0 +1,27 @@
+import os
+import glob
+
+NOTEBOOKS_TEMPLATE_DIR = "{{notebook_templates_dir}}"
+
+NOTEBOOKS_OUTDIR = "{{notebooks_outdir}}"
+os.makedirs(NOTEBOOKS_OUTDIR, exist_ok=True)
+
+notebooks = [
+    os.path.basename(ipynb)
+    for ipynb in glob.glob(os.path.join(NOTEBOOKS_TEMPLATE_DIR, "*.ipynb"))
+]
+
+rule all:
+    input:
+        expand("{NOTEBOOKS_OUTDIR}/{notebook}",
+               NOTEBOOKS_OUTDIR=NOTEBOOKS_OUTDIR, notebook=notebooks)
+
+rule papermill:
+    input:
+        os.path.join(NOTEBOOKS_TEMPLATE_DIR, '{notebook}')
+        
+    output:
+        os.path.join(NOTEBOOKS_OUTDIR, '{notebook}')
+
+    shell:
+        "papermill {input} {output} -f config.yaml"

@@ -80,14 +80,22 @@ PB: Reproducibility / Claritity interface.
 
 *** DONE Implement jupytext light script as templates :0.3.2:
     CLOSED: [2019-07-05 Fri 11:11] SCHEDULED: <2019-07-05 Fri>
-*** NEXT
+
+*** DONE Centralize papermill rule in snakemake file :0.3.3:
+    CLOSED: [2019-07-05 Fri 13:49] SCHEDULED: <2019-07-05 Fri>
 
 - Actually, the rules added using jinja templates could be replaced by one
   "papermill rule" which would run papermill on each notebook. Check how to
   refactor that.
 
+  > Now implemented in advanced_snakefile in templates
+
   > But maybe better in case we want to trace the input/outputs of each
   notebooks through snakemake later on.
+
+  >> So let both option in form of a basic_ and advanced_snakemake file.
+
+*** NEXT
 
 - Create an index/webpage linkin all html ( a jupyter notebook ? a django server ?)
 
