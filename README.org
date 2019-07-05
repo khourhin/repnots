@@ -78,9 +78,9 @@ PB: Reproducibility / Claritity interface.
 
 - [X] More advanced notebook tests using papermill and scrapbook
 
+*** DONE Implement jupytext light script as templates :0.3.2:
+    CLOSED: [2019-07-05 Fri 11:11] SCHEDULED: <2019-07-05 Fri>
 *** NEXT
-
-- Integrate jupytext
 
 - Actually, the rules added using jinja templates could be replaced by one
   "papermill rule" which would run papermill on each notebook. Check how to
